@@ -1,0 +1,13 @@
+﻿div.cSmallDialog div.container div.content p.logIn {
+  text-align: center;
+}
+div.cSmallDialog div.container div.content form.logIn {
+  text-align: center;
+}
+div.cSmallDialog div.container div.content form.logIn input[type=text],
+div.cSmallDialog div.container div.content form.logIn input[type=password] {
+  width: calc(100% - 96px);
+  font-size: 20px;
+  margin: 8px;
+}
+/*# sourceMappingURL=LogInDialog.css.map */

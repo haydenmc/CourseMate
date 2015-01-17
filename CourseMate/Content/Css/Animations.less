@@ -1,0 +1,254 @@
+﻿@import "Functions.less";
+
+/* Default animations */
+
+/* Page transitions */
+@-moz-keyframes anim-page-in {
+	from {
+		opacity:0;
+		.transform(translate3d(0,0,200px));
+	}
+	to {
+		.transform(translate3d(0,0,0));
+	}
+}
+
+@-webkit-keyframes anim-page-in {
+	from {
+		opacity:0;
+		.transform(translate3d(0,0,200px));
+	}
+	to {
+		.transform(translate3d(0,0,0));
+	}
+}
+
+@keyframes anim-page-in {
+	from {
+		opacity:0;
+		.transform(translate3d(0,0,200px));
+	}
+	to {
+		.transform(translate3d(0,0,0));
+	}
+}
+
+.animated.anim-page-in {
+	.animation-name(anim-page-in);
+	.animation-duration(250ms);
+	.animation-timing-function(cubic-bezier(0.230, 1.000, 0.320, 1.000));
+	.animation-iteration-count(1);
+	//.animation-fill-mode(forwards);
+}
+
+@-moz-keyframes anim-page-out {
+	from {
+		.transform(translate3d(0,0,0));
+	}
+	to {
+		opacity:0;
+		.transform(translate3d(0,0,-200px));
+	}
+}
+
+@-webkit-keyframes anim-page-out {
+	from {
+		.transform(translate3d(0,0,0));
+	}
+	to {
+		opacity:0;
+		.transform(translate3d(0,0,-200px));
+	}
+}
+
+@keyframes anim-page-out {
+	from {
+		.transform(translate3d(0,0,0));
+	}
+	to {
+		opacity:0;
+		.transform(translate3d(0,0,-200px));
+	}
+}
+
+.animated.anim-page-out {
+	.animation-name(anim-page-out);
+	.animation-duration(250ms);
+	.animation-timing-function(cubic-bezier(0.230, 1.000, 0.320, 1.000));
+	.animation-iteration-count(1);
+	.animation-fill-mode(forwards);
+}
+
+/* General animations */
+@-moz-keyframes anim-shove-in-left {
+	from {
+		.transform(translate3d(-60px,0,0));
+		opacity:0;
+	}
+	to {
+		
+	}
+}
+@-webkit-keyframes anim-shove-in-left {
+	from {
+		.transform(translate3d(-60px,0,0));
+		opacity:0;
+	}
+	to {
+		
+	}
+}
+@keyframes anim-shove-in-left {
+	from {
+		.transform(translate3d(-60px,0,0));
+		opacity:0;
+	}
+	to {
+		
+	}
+}
+
+.animated.anim-shove-in-left {
+	.animation-name(anim-shove-in-left);
+	.animation-duration(300ms);
+	.animation-timing-function(cubic-bezier(0.165, 0.840, 0.440, 1.000));
+	.animation-iteration-count(1);
+	//.animation-fill-mode(forwards);
+}
+
+@-moz-keyframes anim-shove-in-bottom {
+	from {
+		.transform(translate3d(0,60px,0));
+		opacity:0;
+	}
+	to {
+		
+	}
+}
+@-webkit-keyframes anim-shove-in-bottom {
+	from {
+		.transform(translate3d(0,60px,0));
+		opacity:0;
+	}
+	to {
+		
+	}
+}
+@keyframes anim-shove-in-bottom {
+	from {
+		.transform(translate3d(0,60px,0));
+		opacity:0;
+	}
+	to {
+		
+	}
+}
+
+.animated.anim-shove-in-bottom {
+	.animation-name(anim-shove-in-bottom);
+	.animation-duration(300ms);
+	.animation-timing-function(cubic-bezier(0.165, 0.840, 0.440, 1.000));
+	.animation-iteration-count(1);
+}
+
+@-moz-keyframes anim-shove-out-bottom {
+	from {
+
+	}
+	to {
+		.transform(translate3d(0,60px,0));
+		opacity:0;
+	}
+}
+@-webkit-keyframes anim-shove-out-bottom {
+	from {
+
+	}
+	to {
+		.transform(translate3d(0,60px,0));
+		opacity:0;
+	}
+}
+@keyframes anim-shove-out-bottom {
+	from {
+
+	}
+	to {
+		.transform(translate3d(0,60px,0));
+		opacity:0;
+	}
+}
+
+.animated.anim-shove-out-bottom {
+	.animation-name(anim-shove-out-bottom);
+	.animation-duration(300ms);
+	.animation-timing-function(cubic-bezier(0.165, 0.840, 0.440, 1.000));
+	.animation-iteration-count(1);
+	.animation-fill-mode(forwards);
+}
+
+@-moz-keyframes anim-fade-in {
+	from {
+		opacity:0;
+	}
+	to {
+		
+	}
+}
+@-webkit-keyframes anim-fade-in {
+	from {
+		opacity:0;
+	}
+	to {
+		
+	}
+}
+@keyframes anim-fade-in {
+	from {
+		opacity:0;
+	}
+	to {
+		
+	}
+}
+
+.animated.anim-fade-in {
+	.animation-name(anim-fade-in);
+	.animation-duration(300ms);
+	.animation-timing-function(ease-out);
+	.animation-iteration-count(1);
+	.animation-fill-mode(forwards);
+}
+
+@-moz-keyframes anim-fade-out {
+	from {
+		
+	}
+	to {
+		opacity:0;
+	}
+}
+@-webkit-keyframes anim-fade-out {
+	from {
+		
+	}
+	to {
+		opacity:0;
+	}
+}
+@keyframes anim-fade-out {
+	from {
+		
+	}
+	to {
+		opacity:0;
+	}
+}
+
+.animated.anim-fade-out {
+	.animation-name(anim-fade-out);
+	.animation-duration(300ms);
+	.animation-timing-function(ease-out);
+	.animation-iteration-count(1);
+	.animation-fill-mode(forwards);
+}

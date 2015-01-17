@@ -1,2 +1,32 @@
-﻿body {
+﻿@import "Constants.less";
+@import "Fonts.less";
+@import "Animations.less";
+
+body {
+	font-family: 'Open Sans';
 }
+
+.COMPONENT {
+	display:none;
+}
+
+/* Common elements */
+input[type=text], input[type=password] {
+	font-family: 'Open Sans';
+	border: 0;
+	border-left:3px solid darken(@primaryColor,15%);
+	padding: 6px;
+	padding-left: 9px;
+	font-size: 16px;
+	.box-sizing(border-box);
+	.transition(border 100ms ease-out, padding 100ms ease-out;);
+
+	&:focus {
+		border-left-width: 6px;
+		padding-left: 6px;
+	}
+}
+
+/* Some components */
+@import "Components/SmallDialog.less";
+@import "Components/LogInDialog.less";

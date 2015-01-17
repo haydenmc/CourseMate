@@ -7,11 +7,18 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title></title>
+    <title>CourseMate</title>
+	@Styles.Render("~/Content/Bundles/Css")
 </head>
 <body>
-    <div>
-        <h1>Hi.</h1>
-    </div>
+	<noscript>This web application requires JavaScript, friend.</noscript>
+    
+	<!-- include components -->
+	<!-- COMPONENTS -->
+	@RenderPage("Components/SmallDialog.cshtml")
+
+	<!-- Javascript -->
+	@Scripts.Render("~/Bundles/JavaScript")
+	@Scripts.Render("~/Bundles/TypeScript")
 </body>
 </html>

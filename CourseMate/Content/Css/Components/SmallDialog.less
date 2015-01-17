@@ -1,0 +1,75 @@
+﻿@import "../Constants.less";
+@import "../Functions.less";
+
+@dialogWidth: 360px;
+@dialogHeight: 480px;
+
+div.cSmallDialog {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: rgba(255, 255, 255, 0.25);
+	z-index: -10;
+	
+	div.container {
+		position: absolute;
+		top: 50%;
+		height: @dialogHeight;
+		margin-top: -(@dialogHeight/2);
+		left: 50%;
+		max-width: @dialogWidth;
+		width: 100%;
+		margin-left: -(@dialogWidth/2);
+		background-color: @primaryColor;
+		color: #fff;
+		font-size:18px;
+		overflow-x: hidden;
+		overflow-y: auto;
+
+		header {
+			font-weight: 900;
+			font-size: 108px;
+			line-height: 1;
+			opacity: 0.25;
+			margin-top: -8px;
+			text-transform: capitalize;
+			.user-select(none);
+			cursor: default;
+		}
+
+		div.content {
+			margin: 8px;
+		}
+
+		footer {
+			position:absolute;
+			width: 100%;
+			height: 52px;
+			bottom: 0;
+			ul.actions {
+				display: block;
+				position: relative;
+				list-style-type: none;
+				margin: 0;
+				padding: 0;
+				width: 100%;
+				height: 100%;
+				li {
+					background-color: lighten(@primaryColor, 8%);
+					display: inline-block;
+					height: 100%;
+					a {
+						cursor: pointer;
+						.box-sizing(border-box);
+						padding-top: 14px;
+						display: block;
+						height: 100%;
+					}
+					text-align: center;
+				}
+			}
+		}
+	}
+}

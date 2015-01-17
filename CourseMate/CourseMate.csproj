@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -20,6 +21,7 @@
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
+    <TypeScriptToolsVersion>1.0</TypeScriptToolsVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -162,23 +164,63 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201501171530433_Initial.cs" />
+    <Compile Include="Migrations\201501171530433_Initial.Designer.cs">
+      <DependentUpon>201501171530433_Initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountBindingModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\ApplicationDbContext.cs" />
+    <Compile Include="Models\AssignmentModel.cs" />
+    <Compile Include="Models\AssignmentTypeModel.cs" />
+    <Compile Include="Models\CourseModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\TermModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Providers\ApplicationOAuthProvider.cs" />
     <Compile Include="Results\ChallengeResult.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\css\App.css">
+    <Content Include="Content\Css\Animations.css">
+      <DependentUpon>Animations.less</DependentUpon>
+    </Content>
+    <Content Include="Content\Css\Animations.min.css">
+      <DependentUpon>Animations.css</DependentUpon>
+    </Content>
+    <Content Include="Content\Css\App.css">
       <DependentUpon>App.less</DependentUpon>
     </Content>
-    <Content Include="Content\css\App.min.css">
+    <Content Include="Content\Css\App.min.css">
       <DependentUpon>App.css</DependentUpon>
     </Content>
+    <Content Include="Content\Css\Components\LogInDialog.css">
+      <DependentUpon>LogInDialog.less</DependentUpon>
+    </Content>
+    <Content Include="Content\Css\Components\LogInDialog.min.css">
+      <DependentUpon>LogInDialog.css</DependentUpon>
+    </Content>
+    <Content Include="Content\Css\Components\SmallDialog.css">
+      <DependentUpon>SmallDialog.less</DependentUpon>
+    </Content>
+    <Content Include="Content\Css\Components\SmallDialog.min.css">
+      <DependentUpon>SmallDialog.css</DependentUpon>
+    </Content>
+    <Content Include="Content\Css\Fonts.css">
+      <DependentUpon>Fonts.less</DependentUpon>
+    </Content>
+    <Content Include="Content\Css\Fonts.min.css">
+      <DependentUpon>Fonts.css</DependentUpon>
+    </Content>
+    <Content Include="Content\Fonts\OpenSans-Bold-webfont.svg" />
+    <Content Include="Content\Fonts\OpenSans-ExtraBold-webfont.svg" />
+    <Content Include="Content\Fonts\OpenSans-Light-webfont.svg" />
+    <Content Include="Content\Fonts\OpenSans-Regular-webfont.svg" />
+    <Content Include="Content\Fonts\OpenSans-Semibold-webfont.svg" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="Scripts\es6-promise-2.0.1.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -195,18 +237,71 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
-    <Content Include="Content\css\App.less" />
-    <Content Include="Content\css\App.css.map">
+    <Content Include="Content\Css\App.less" />
+    <Content Include="Content\Css\App.css.map">
       <DependentUpon>App.css</DependentUpon>
+    </Content>
+    <Content Include="Content\Css\Constants.less" />
+    <Content Include="Content\Css\Components\SmallDialog.less" />
+    <Content Include="Content\Css\Components\SmallDialog.css.map">
+      <DependentUpon>SmallDialog.css</DependentUpon>
+    </Content>
+    <Content Include="Content\Fonts\OpenSans-Bold-webfont.eot" />
+    <Content Include="Content\Fonts\OpenSans-Bold-webfont.ttf" />
+    <Content Include="Content\Fonts\OpenSans-Bold-webfont.woff" />
+    <Content Include="Content\Fonts\OpenSans-ExtraBold-webfont.eot" />
+    <Content Include="Content\Fonts\OpenSans-ExtraBold-webfont.ttf" />
+    <Content Include="Content\Fonts\OpenSans-ExtraBold-webfont.woff" />
+    <Content Include="Content\Fonts\OpenSans-Light-webfont.eot" />
+    <Content Include="Content\Fonts\OpenSans-Light-webfont.ttf" />
+    <Content Include="Content\Fonts\OpenSans-Light-webfont.woff" />
+    <Content Include="Content\Fonts\OpenSans-Regular-webfont.eot" />
+    <Content Include="Content\Fonts\OpenSans-Regular-webfont.ttf" />
+    <Content Include="Content\Fonts\OpenSans-Regular-webfont.woff" />
+    <Content Include="Content\Fonts\OpenSans-Semibold-webfont.eot" />
+    <Content Include="Content\Fonts\OpenSans-Semibold-webfont.ttf" />
+    <Content Include="Content\Fonts\OpenSans-Semibold-webfont.woff" />
+    <Content Include="Content\Css\Fonts.less" />
+    <Content Include="Content\Css\Fonts.css.map">
+      <DependentUpon>Fonts.css</DependentUpon>
+    </Content>
+    <Content Include="Content\Css\Animations.less" />
+    <Content Include="Content\Css\Functions.less" />
+    <Content Include="Content\Css\Animations.css.map">
+      <DependentUpon>Animations.css</DependentUpon>
+    </Content>
+    <Content Include="Content\Css\Components\LogInDialog.less" />
+    <Content Include="Content\Css\Components\LogInDialog.css.map">
+      <DependentUpon>LogInDialog.css</DependentUpon>
     </Content>
     <None Include="Project_Readme.html" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\Components\SmallDialog.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201501171530433_Initial.resx">
+      <DependentUpon>201501171530433_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="Scripts\Definitions\es6-promise.d.ts" />
+    <TypeScriptCompile Include="Scripts\TypeScript\Animator.ts" />
+    <TypeScriptCompile Include="Scripts\TypeScript\App.ts" />
+    <TypeScriptCompile Include="Scripts\TypeScript\Component.ts" />
+    <TypeScriptCompile Include="Scripts\TypeScript\Components\LogInDialog.ts" />
+    <TypeScriptCompile Include="Scripts\TypeScript\Components\SmallDialog.ts" />
+    <TypeScriptCompile Include="Scripts\TypeScript\Data\JsonRequest.ts" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
   </PropertyGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
+    <TypeScriptTarget>ES5</TypeScriptTarget>
+    <TypeScriptModuleKind>amd</TypeScriptModuleKind>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
   <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
   <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">

@@ -34,6 +34,14 @@
             });
         });
     };
+
+    DataSource.prototype.fetchCourses = function () {
+        return JsonRequest.httpGet(DataSource.APIURL + '/Courses', this.authInfo.access_token);
+    };
+
+    DataSource.prototype.postCourse = function (courseCode, courseName) {
+        return JsonRequest.httpPost(DataSource.APIURL + '/Courses', { CourseCode: courseCode, CourseName: courseName }, this.authInfo.access_token);
+    };
     DataSource.APIURL = "/api";
     return DataSource;
 })();

@@ -29,4 +29,12 @@
 			});
 		});
 	}
+
+	public fetchCourses(): Promise<Array<Course>> {
+		return JsonRequest.httpGet<Array<Course>>(DataSource.APIURL + '/Courses', this.authInfo.access_token);
+	}
+
+	public postCourse(courseCode: string, courseName: string): Promise<Course> {
+		return JsonRequest.httpPost<Course>(DataSource.APIURL + '/Courses', { CourseCode: courseCode, CourseName: courseName }, this.authInfo.access_token);
+	}
 } 

@@ -21,6 +21,7 @@ namespace CourseMate
 				"~/Scripts/TypeScript/Components/SmallDialog.js",
 				"~/Scripts/TypeScript/Components/LogInDialog.js",
 				"~/Scripts/TypeScript/Components/RegisterDialog.js",
+				"~/Scripts/TypeScript/Components/AddCourseDialog.js",
 				"~/Scripts/TypeScript/Components/TopBar.js",
 				"~/Scripts/TypeScript/Components/CourseListing.js"));
 

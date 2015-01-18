@@ -1,4 +1,4 @@
-var __extends = this.__extends || function (d, b) {
+﻿var __extends = this.__extends || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
     __.prototype = b.prototype;
@@ -21,6 +21,7 @@ var TopBar = (function (_super) {
         enumerable: true,
         configurable: true
     });
+
     Object.defineProperty(TopBar.prototype, "PageTitle", {
         get: function () {
             return this.baseElement.querySelector("h1.pageTitle").innerHTML;
@@ -35,6 +36,7 @@ var TopBar = (function (_super) {
         enumerable: true,
         configurable: true
     });
+
     return TopBar;
 })(Component);
 //# sourceMappingURL=TopBar.js.map

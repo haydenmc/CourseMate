@@ -590,8 +590,8 @@ div.cSmallDialog {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(255, 255, 255, 0.25);
-  z-index: -10;
+  background-color: rgba(0, 0, 0, 0.2);
+  z-index: 10;
 }
 div.cSmallDialog div.container {
   position: absolute;
@@ -729,5 +729,15 @@ div.cCourseListing {
   bottom: 0;
   overflow-y: auto;
   overflow-x: hidden;
+}
+div.cCourseListing ul.courses {
+  list-style-type: none;
+  padding: 0;
+  width: 100%;
+  max-width: 640px;
+  margin: 0 auto;
+}
+div.cCourseListing ul.courses li {
+  display: block;
 }
 /*# sourceMappingURL=App.css.map */

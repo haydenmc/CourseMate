@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CourseMate.Models.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -49,5 +50,17 @@ namespace CourseMate.Models
 		/// excluded from the total grade calculation
 		/// </summary>
 		public int DropLowestCount { get; set; }
+
+		public AssignmentTypeViewModel ToViewModel()
+		{
+			return new AssignmentTypeViewModel()
+			{
+				AssignmentTypeId = this.AssignmentTypeId,
+				Name = this.Name,
+				Weight = this.Weight,
+				DropLowestCount = this.DropLowestCount,
+				Assignments = this.Assignments.Select(a => a.ToViewModel()).ToList()
+			};
+		}
 	}
 }

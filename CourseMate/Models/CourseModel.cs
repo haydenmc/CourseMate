@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CourseMate.Models.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -23,7 +24,7 @@ namespace CourseMate.Models
 		/// Term that this course belongs to.
 		/// </summary>
 		[InverseProperty("Courses")]
-		public virtual TermModel Term { get; set; }
+		public virtual ApplicationUser User { get; set; }
 
 		/// <summary>
 		/// Short code for referencing this class.
@@ -38,6 +39,12 @@ namespace CourseMate.Models
 		public string CourseName { get; set; }
 
 		/// <summary>
+		/// Defines the color that will be used to identify this course.
+		/// E.g. #ffffff
+		/// </summary>
+		public string ColorCode { get; set; }
+
+		/// <summary>
 		/// Date and time this course was entered.
 		/// </summary>
 		public DateTimeOffset TimeCreated { get; set; }
@@ -47,5 +54,18 @@ namespace CourseMate.Models
 		/// </summary>
 		[InverseProperty("Course")]
 		public virtual ICollection<AssignmentTypeModel> AssignmentTypes { get; set; }
+
+		public CourseViewModel ToViewModel()
+		{
+			return new CourseViewModel()
+			{
+				CourseId = this.CourseId,
+				CourseName = this.CourseName,
+				CourseCode = this.CourseCode,
+				ColorCode = this.ColorCode,
+				TimeCreated = this.TimeCreated,
+				AssignmentTypes = this.AssignmentTypes.Select(a => a.ToViewModel()).ToList()
+			};
+		}
 	}
 }

@@ -1,4 +1,4 @@
-var Util = (function () {
+﻿var Util = (function () {
     function Util() {
     }
     Util.escapeStringHtml = function (str) {
@@ -11,6 +11,7 @@ var Util = (function () {
             return tagsToReplace[tag] || tag;
         });
     };
+
     Object.defineProperty(Util, "whichTransitionEvent", {
         get: function () {
             if (typeof Util._transitionEvent !== 'undefined') {
@@ -24,6 +25,7 @@ var Util = (function () {
                 'MozTransition': 'transitionend',
                 'WebkitTransition': 'webkitTransitionEnd'
             };
+
             for (t in transitions) {
                 if (el.style[t] !== undefined) {
                     Util._transitionEvent = transitions[t];
@@ -34,6 +36,7 @@ var Util = (function () {
         enumerable: true,
         configurable: true
     });
+
     Object.defineProperty(Util, "whichAnimationEvent", {
         get: function () {
             if (typeof Util._animationEvent !== 'undefined') {
@@ -47,6 +50,7 @@ var Util = (function () {
                 "MozAnimation": "animationend",
                 "WebkitAnimation": "webkitAnimationEnd"
             };
+
             for (t in animations) {
                 if (el.style[t] !== undefined) {
                     Util._transitionEvent = animations[t];

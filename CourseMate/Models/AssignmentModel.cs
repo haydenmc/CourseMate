@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CourseMate.Models.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -31,5 +32,26 @@ namespace CourseMate.Models
 		/// e.g. Midterm Exam, Homework 1, etc.
 		/// </summary>
 		public string Name { get; set; }
+
+		public DateTimeOffset TimeDue { get; set; }
+
+		public bool IsCompleted { get; set; }
+
+		public double PointsPossible { get; set; }
+
+		public double? PointsEarned { get; set; }
+
+		public AssignmentViewModel ToViewModel()
+		{
+			return new AssignmentViewModel()
+			{
+				AssignmentId = this.AssignmentId,
+				Name = this.Name,
+				PointsPossible = this.PointsPossible,
+				PointsEarned = this.PointsEarned,
+				IsCompleted = this.IsCompleted,
+				TimeDue = this.TimeDue
+			};
+		}
 	}
 }

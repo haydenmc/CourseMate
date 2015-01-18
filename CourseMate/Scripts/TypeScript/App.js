@@ -1,6 +1,6 @@
-﻿/**
-* This class handles the app lifecycle.
-*/
+/**
+ * This class handles the app lifecycle.
+ */
 var App = (function () {
     function App() {
         App.instance = this;
@@ -14,7 +14,6 @@ var App = (function () {
         enumerable: true,
         configurable: true
     });
-
     Object.defineProperty(App.prototype, "TopBar", {
         get: function () {
             return this._topBar;
@@ -22,7 +21,6 @@ var App = (function () {
         enumerable: true,
         configurable: true
     });
-
     Object.defineProperty(App.prototype, "BackStack", {
         get: function () {
             return this._backStack;
@@ -30,7 +28,14 @@ var App = (function () {
         enumerable: true,
         configurable: true
     });
-
+    App.prototype.navigateBack = function () {
+        if (this.BackStack.length > 1) {
+            this.BackStack[this.BackStack.length - 1].hide();
+            this._backStack.splice(-1, 1);
+            this.BackStack[this.BackStack.length - 1].show();
+            this.TopBar.PageTitle = this.BackStack[this.BackStack.length - 1].Title;
+        }
+    };
     App.prototype.navigateTo = function (component) {
         // Hide the previous stack item.
         if (this.BackStack.length > 0) {
@@ -40,14 +45,12 @@ var App = (function () {
         this.TopBar.PageTitle = component.Title;
         component.show();
     };
-
     App.prototype.run = function () {
         // Here we go!
         // Test dialog
         var d = new LogInDialog(this);
         d.show();
     };
-
     // This is called after the user has successfully logged in
     App.prototype.loggedIn = function () {
         this._topBar = new TopBar(this);
@@ -56,7 +59,6 @@ var App = (function () {
     };
     return App;
 })();
-
 window.addEventListener("load", function () {
     new App().run();
 });

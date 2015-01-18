@@ -49,7 +49,7 @@ namespace CourseMate.Controllers
 		{
 			var userId = User.Identity.GetUserId();
 			Random rnd = new Random();
-			var rgbColor = (new Hsv() { H = rnd.Next(0,360), S = 1.0, V = 0.85 }).ToRgb();
+			var rgbColor = (new Hsv() { H = rnd.Next(0,360), S = 1.0, V = 0.75 }).ToRgb();
 			var hexColor = "#" + ((int)rgbColor.R).ToString("X2")
 				+ ((int)rgbColor.G).ToString("X2")
 				+ ((int)rgbColor.B).ToString("X2");

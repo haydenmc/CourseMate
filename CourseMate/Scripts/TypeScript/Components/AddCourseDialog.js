@@ -6,10 +6,13 @@
 };
 var AddCourseDialog = (function (_super) {
     __extends(AddCourseDialog, _super);
-    function AddCourseDialog(app) {
+    function AddCourseDialog(app, listing) {
         var _this = this;
         _super.call(this, app);
         this.working = false;
+        if (typeof listing !== 'undefined') {
+            this.courseListing = listing;
+        }
         this.title = "Add";
         var form = document.createElement("form");
         form.classList.add("logIn");
@@ -45,6 +48,9 @@ var AddCourseDialog = (function (_super) {
         var courseCode = inputElements[0].value;
         var courseName = inputElements[1].value;
         this.Application.DataSource.postCourse(courseCode, courseName).then(function (success) {
+            if (typeof _this.courseListing !== 'undefined') {
+                _this.courseListing.addCourseListing(success, true);
+            }
             _this.working = false;
             _this.hide();
         }, function (error) {

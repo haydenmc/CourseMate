@@ -9,6 +9,21 @@ div.cTopBar {
 	height: 64px;
 	background-color: @primaryColor;
 	color: #fff;
+	.transition(color 300ms ease-out);
+
+	button.backButton {
+		background-color: transparent;
+		border: 2px solid #fff;
+		width: 48px;
+		height: 48px;
+		margin: 8px;
+		border-radius: 32px;
+		float: left;
+
+		&:active {
+			background-color: #fff;
+		}
+	}
 
 	h1.pageTitle {
 		float: left;

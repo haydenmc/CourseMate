@@ -21,6 +21,15 @@ class App {
 		this._backStack = new Array<Component>();
 	}
 
+	public navigateBack(): void {
+		if (this.BackStack.length > 1) {
+			this.BackStack[this.BackStack.length - 1].hide();
+			this._backStack.splice(-1, 1);
+			this.BackStack[this.BackStack.length - 1].show();
+			this.TopBar.PageTitle = this.BackStack[this.BackStack.length - 1].Title;
+		}
+	}
+
 	public navigateTo(component: Component): void {
 		// Hide the previous stack item.
 		if (this.BackStack.length > 0) {

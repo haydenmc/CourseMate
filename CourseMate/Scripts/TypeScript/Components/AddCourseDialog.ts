@@ -1,8 +1,12 @@
 ﻿class AddCourseDialog extends SmallDialog {
 	private working: boolean = false;
+	private courseListing: CourseListing;
 
-	constructor(app: App) {
+	constructor(app: App, listing?: CourseListing) {
 		super(app);
+		if (typeof listing !== 'undefined') {
+			this.courseListing = listing;
+		}
 		this.title = "Add";
 		var form = document.createElement("form");
 		form.classList.add("logIn");
@@ -38,6 +42,9 @@
 		var courseCode = (<HTMLInputElement>inputElements[0]).value;
 		var courseName = (<HTMLInputElement>inputElements[1]).value;
 		this.Application.DataSource.postCourse(courseCode, courseName).then((success) => {
+			if (typeof this.courseListing !== 'undefined') {
+				this.courseListing.addCourseListing(success, true);
+			}
 			this.working = false;
 			this.hide();
 		},(error) => {

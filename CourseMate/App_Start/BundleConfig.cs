@@ -23,7 +23,8 @@ namespace CourseMate
 				"~/Scripts/TypeScript/Components/RegisterDialog.js",
 				"~/Scripts/TypeScript/Components/AddCourseDialog.js",
 				"~/Scripts/TypeScript/Components/TopBar.js",
-				"~/Scripts/TypeScript/Components/CourseListing.js"));
+				"~/Scripts/TypeScript/Components/CourseListing.js",
+				"~/Scripts/TypeScript/Components/CourseDetails.js"));
 
             bundles.Add(new StyleBundle("~/Content/Bundles/Css").Include(
 				"~/Content/Css/App.css"));

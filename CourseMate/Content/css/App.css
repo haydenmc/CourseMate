@@ -229,6 +229,54 @@
   -webkit-animation-iteration-count: 1;
   animation-iteration-count: 1;
 }
+@-moz-keyframes anim-shove-in-right {
+  from {
+    -webkit-transform: translate3d(60px, 0, 0);
+    -moz-transform: translate3d(60px, 0, 0);
+    -ms-transform: translate3d(60px, 0, 0);
+    -o-transform: translate3d(60px, 0, 0);
+    transform: translate3d(60px, 0, 0);
+    opacity: 0;
+  }
+}
+@-webkit-keyframes anim-shove-in-right {
+  from {
+    -webkit-transform: translate3d(60px, 0, 0);
+    -moz-transform: translate3d(60px, 0, 0);
+    -ms-transform: translate3d(60px, 0, 0);
+    -o-transform: translate3d(60px, 0, 0);
+    transform: translate3d(60px, 0, 0);
+    opacity: 0;
+  }
+}
+@keyframes anim-shove-in-right {
+  from {
+    -webkit-transform: translate3d(60px, 0, 0);
+    -moz-transform: translate3d(60px, 0, 0);
+    -ms-transform: translate3d(60px, 0, 0);
+    -o-transform: translate3d(60px, 0, 0);
+    transform: translate3d(60px, 0, 0);
+    opacity: 0;
+  }
+}
+.animated.anim-shove-in-right {
+  -moz-animation-name: anim-shove-in-right;
+  -o-animation-name: anim-shove-in-right;
+  -webkit-animation-name: anim-shove-in-right;
+  animation-name: anim-shove-in-right;
+  -moz-animation-duration: 300ms;
+  -o-animation-duration: 300ms;
+  -webkit-animation-duration: 300ms;
+  animation-duration: 300ms;
+  -moz-animation-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+  -o-animation-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+  -webkit-animation-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+  animation-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+  -moz-animation-iteration-count: 1;
+  -o-animation-iteration-count: 1;
+  -webkit-animation-iteration-count: 1;
+  animation-iteration-count: 1;
+}
 @-moz-keyframes anim-shove-in-top {
   from {
     -webkit-transform: translate3d(0, -60px, 0);
@@ -481,6 +529,58 @@
   -moz-animation-fill-mode: forwards;
   animation-fill-mode: forwards;
 }
+@-moz-keyframes anim-shove-out-left {
+  to {
+    -webkit-transform: translate3d(-60px, 0, 0);
+    -moz-transform: translate3d(-60px, 0, 0);
+    -ms-transform: translate3d(-60px, 0, 0);
+    -o-transform: translate3d(-60px, 0, 0);
+    transform: translate3d(-60px, 0, 0);
+    opacity: 0;
+  }
+}
+@-webkit-keyframes anim-shove-out-left {
+  to {
+    -webkit-transform: translate3d(-60px, 0, 0);
+    -moz-transform: translate3d(-60px, 0, 0);
+    -ms-transform: translate3d(-60px, 0, 0);
+    -o-transform: translate3d(-60px, 0, 0);
+    transform: translate3d(-60px, 0, 0);
+    opacity: 0;
+  }
+}
+@keyframes anim-shove-out-left {
+  to {
+    -webkit-transform: translate3d(-60px, 0, 0);
+    -moz-transform: translate3d(-60px, 0, 0);
+    -ms-transform: translate3d(-60px, 0, 0);
+    -o-transform: translate3d(-60px, 0, 0);
+    transform: translate3d(-60px, 0, 0);
+    opacity: 0;
+  }
+}
+.animated.anim-shove-out-left {
+  -moz-animation-name: anim-shove-out-left;
+  -o-animation-name: anim-shove-out-left;
+  -webkit-animation-name: anim-shove-out-left;
+  animation-name: anim-shove-out-left;
+  -moz-animation-duration: 300ms;
+  -o-animation-duration: 300ms;
+  -webkit-animation-duration: 300ms;
+  animation-duration: 300ms;
+  -moz-animation-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+  -o-animation-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+  -webkit-animation-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+  animation-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+  -moz-animation-iteration-count: 1;
+  -o-animation-iteration-count: 1;
+  -webkit-animation-iteration-count: 1;
+  animation-iteration-count: 1;
+  -o-animation-fill-mode: forwards;
+  -webkit-animation-fill-mode: forwards;
+  -moz-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+}
 @-moz-keyframes anim-fade-in {
   from {
     opacity: 0;
@@ -590,7 +690,7 @@ div.cSmallDialog {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: rgba(255, 255, 255, 0.6);
   z-index: 10;
 }
 div.cSmallDialog div.container {
@@ -605,8 +705,7 @@ div.cSmallDialog div.container {
   background-color: #f7931d;
   color: #fff;
   font-size: 18px;
-  overflow-x: hidden;
-  overflow-y: auto;
+  overflow: hidden;
 }
 div.cSmallDialog div.container header {
   font-weight: 900;
@@ -686,6 +785,22 @@ div.cTopBar {
   height: 64px;
   background-color: #f7931d;
   color: #fff;
+  -webkit-transition: color 300ms ease-out;
+  -moz-transition: color 300ms ease-out;
+  -o-transition: color 300ms ease-out;
+  transition: color 300ms ease-out;
+}
+div.cTopBar button.backButton {
+  background-color: transparent;
+  border: 2px solid #fff;
+  width: 48px;
+  height: 48px;
+  margin: 8px;
+  border-radius: 32px;
+  float: left;
+}
+div.cTopBar button.backButton:active {
+  background-color: #fff;
 }
 div.cTopBar h1.pageTitle {
   float: left;
@@ -778,5 +893,14 @@ div.cCourseListing ul.courses li.new {
 }
 div.cCourseListing ul.courses li.new:hover {
   opacity: 1;
+}
+div.cCourseDetails {
+  position: fixed;
+  top: 64px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 /*# sourceMappingURL=App.css.map */

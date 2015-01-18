@@ -8,6 +8,22 @@ div.cTopBar {
   height: 64px;
   background-color: #f7931d;
   color: #fff;
+  -webkit-transition: color 300ms ease-out;
+  -moz-transition: color 300ms ease-out;
+  -o-transition: color 300ms ease-out;
+  transition: color 300ms ease-out;
+}
+div.cTopBar button.backButton {
+  background-color: transparent;
+  border: 2px solid #fff;
+  width: 48px;
+  height: 48px;
+  margin: 8px;
+  border-radius: 32px;
+  float: left;
+}
+div.cTopBar button.backButton:active {
+  background-color: #fff;
 }
 div.cTopBar h1.pageTitle {
   float: left;

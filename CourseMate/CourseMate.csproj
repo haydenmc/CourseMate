@@ -214,6 +214,12 @@
     <Content Include="Content\Css\App.min.css">
       <DependentUpon>App.css</DependentUpon>
     </Content>
+    <Content Include="Content\Css\Components\CourseDetails.css">
+      <DependentUpon>CourseDetails.less</DependentUpon>
+    </Content>
+    <Content Include="Content\Css\Components\CourseDetails.min.css">
+      <DependentUpon>CourseDetails.css</DependentUpon>
+    </Content>
     <Content Include="Content\Css\Components\CourseListing.css">
       <DependentUpon>CourseListing.less</DependentUpon>
     </Content>
@@ -266,6 +272,10 @@
     <Content Include="Content\Css\Components\CourseListing.css.map">
       <DependentUpon>CourseListing.css</DependentUpon>
     </Content>
+    <Content Include="Content\Css\Components\CourseDetails.less" />
+    <Content Include="Content\Css\Components\CourseDetails.css.map">
+      <DependentUpon>CourseDetails.css</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-1.6.4-vsdoc.js" />
     <Content Include="Scripts\jquery-1.6.4.js" />
     <Content Include="Scripts\jquery-1.6.4.min.js" />
@@ -282,6 +292,7 @@
     <Content Include="Views\Web.config" />
     <Content Include="Views\Home\Components\TopBar.cshtml" />
     <Content Include="Views\Home\Components\CourseListing.cshtml" />
+    <Content Include="Views\Home\Components\CourseDetails.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -347,6 +358,7 @@
     <TypeScriptCompile Include="Scripts\TypeScript\Animator.ts" />
     <TypeScriptCompile Include="Scripts\TypeScript\App.ts" />
     <TypeScriptCompile Include="Scripts\TypeScript\Component.ts" />
+    <TypeScriptCompile Include="Scripts\TypeScript\Components\CourseDetails.ts" />
     <TypeScriptCompile Include="Scripts\TypeScript\Components\CourseListing.ts" />
     <TypeScriptCompile Include="Scripts\TypeScript\Components\AddCourseDialog.ts" />
     <TypeScriptCompile Include="Scripts\TypeScript\Components\LogInDialog.ts" />

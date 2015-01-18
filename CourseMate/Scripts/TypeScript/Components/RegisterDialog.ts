@@ -20,7 +20,7 @@
 				if (this.working) {
 					return;
 				}
-				new LogInDialog(this.App).show();
+				new LogInDialog(this.Application).show();
 				this.hide();
 			}
 		});
@@ -40,7 +40,7 @@
 		var email = (<HTMLInputElement>inputElements[0]).value;
 		var password = (<HTMLInputElement>inputElements[1]).value;
 		var confirmPassword = (<HTMLInputElement>inputElements[2]).value;
-		this.App.DataSource.register(email, password, confirmPassword).then((result) => {
+		this.Application.DataSource.register(email, password, confirmPassword).then((result) => {
 			alert("Success!");
 			this.working = false;
 		}, (error) => {

@@ -1,0 +1,46 @@
+﻿/* Common useful Functions */
+/* Animations */
+div.cTopBar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 64px;
+  background-color: #f7931d;
+  color: #fff;
+}
+div.cTopBar h1.pageTitle {
+  float: left;
+  margin: 0 0 0 16px;
+  padding: 0;
+  font-weight: 900;
+  font-size: 54px;
+  opacity: 0.5;
+  height: 100%;
+  line-height: 1.25;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+  cursor: default;
+}
+div.cTopBar div.user {
+  display: block;
+  float: right;
+  height: 64px;
+}
+div.cTopBar div.user img {
+  width: 64px;
+  height: 64px;
+  vertical-align: top;
+  margin: 0 0 0 16px;
+  padding: 0;
+  background-color: #fde5c9;
+}
+div.cTopBar div.user span {
+  font-size: 26px;
+  font-weight: normal;
+  line-height: 2.5;
+  color: #fff;
+}
+/*# sourceMappingURL=TopBar.css.map */

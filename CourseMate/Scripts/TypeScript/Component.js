@@ -20,7 +20,7 @@
         this._baseElement.classList.remove("COMPONENT");
         this._baseElement.id = '';
     }
-    Object.defineProperty(Component.prototype, "App", {
+    Object.defineProperty(Component.prototype, "Application", {
         get: function () {
             return this._app;
         },
@@ -47,6 +47,17 @@
     Object.defineProperty(Component.prototype, "isHidden", {
         get: function () {
             return this._isHidden;
+        },
+        enumerable: true,
+        configurable: true
+    });
+
+    Object.defineProperty(Component.prototype, "Title", {
+        get: function () {
+            if (typeof this._title !== 'undefined') {
+                return this._title;
+            }
+            return "component";
         },
         enumerable: true,
         configurable: true

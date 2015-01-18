@@ -27,7 +27,7 @@ var RegisterDialog = (function (_super) {
                 if (_this.working) {
                     return;
                 }
-                new LogInDialog(_this.App).show();
+                new LogInDialog(_this.Application).show();
                 _this.hide();
             }
         });
@@ -47,7 +47,7 @@ var RegisterDialog = (function (_super) {
         var email = inputElements[0].value;
         var password = inputElements[1].value;
         var confirmPassword = inputElements[2].value;
-        this.App.DataSource.register(email, password, confirmPassword).then(function (result) {
+        this.Application.DataSource.register(email, password, confirmPassword).then(function (result) {
             alert("Success!");
             _this.working = false;
         }, function (error) {

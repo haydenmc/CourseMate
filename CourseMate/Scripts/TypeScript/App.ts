@@ -7,9 +7,28 @@ class App {
 	public get DataSource(): DataSource {
 		return this._dataSource;
 	}
+	private _topBar: TopBar;
+	public get TopBar(): TopBar {
+		return this._topBar;
+	}
+	private _backStack: Array<Component>;
+	public get BackStack(): Array<Component> {
+		return this._backStack;
+	}
 	constructor() {
 		App.instance = this;
 		this._dataSource = new DataSource();
+		this._backStack = new Array<Component>();
+	}
+
+	public navigateTo(component: Component): void {
+		// Hide the previous stack item.
+		if (this.BackStack.length > 0) {
+			this.BackStack[this.BackStack.length - 1].hide();
+		}
+		this.BackStack.push(component);
+		this.TopBar.PageTitle = component.Title;
+		component.show();
 	}
 
 	public run(): void {
@@ -17,6 +36,13 @@ class App {
 		// Test dialog
 		var d = new LogInDialog(this);
 		d.show();
+	}
+
+	// This is called after the user has successfully logged in
+	public loggedIn(): void {
+		this._topBar = new TopBar(this);
+		this.TopBar.show();
+		this.navigateTo(new CourseListing(this));
 	}
 }
 

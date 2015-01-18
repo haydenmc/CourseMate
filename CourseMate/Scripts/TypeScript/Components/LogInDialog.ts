@@ -12,7 +12,8 @@
 		form.classList.add("logIn");
 		form.innerHTML = '<input type="text" name="email" placeholder="email address" />'
 		+ '<input type= "password" name= "password" placeholder="password" />';
-		form.addEventListener("submit",() => {
+		form.addEventListener("submit",(evt) => {
+			evt.preventDefault();
 			this.submit();
 		});
 		this.contentNodes = [intro, form];
@@ -22,7 +23,7 @@
 				if (this.working) {
 					return;
 				}
-				new RegisterDialog(this.App).show();
+				new RegisterDialog(this.Application).show();
 				this.hide();
 			}
 		});
@@ -41,9 +42,10 @@
 		var inputElements = this.baseElement.querySelectorAll("input");
 		var username = (<HTMLInputElement>inputElements[0]).value;
 		var password = (<HTMLInputElement>inputElements[1]).value;
-		this.App.DataSource.authenticate(username, password).then((success) => {
-			alert("It worked!");
+		this.Application.DataSource.authenticate(username, password).then((success) => {
+			this.Application.loggedIn();
 			this.working = false;
+			this.hide();
 		},(error) => {
 				alert("There was an error authenticating: " + error);
 				this.working = false;

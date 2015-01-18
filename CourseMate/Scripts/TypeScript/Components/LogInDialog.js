@@ -19,7 +19,8 @@ var LogInDialog = (function (_super) {
         var form = document.createElement("form");
         form.classList.add("logIn");
         form.innerHTML = '<input type="text" name="email" placeholder="email address" />' + '<input type= "password" name= "password" placeholder="password" />';
-        form.addEventListener("submit", function () {
+        form.addEventListener("submit", function (evt) {
+            evt.preventDefault();
             _this.submit();
         });
         this.contentNodes = [intro, form];
@@ -30,7 +31,7 @@ var LogInDialog = (function (_super) {
                 if (_this.working) {
                     return;
                 }
-                new RegisterDialog(_this.App).show();
+                new RegisterDialog(_this.Application).show();
                 _this.hide();
             }
         });
@@ -49,9 +50,10 @@ var LogInDialog = (function (_super) {
         var inputElements = this.baseElement.querySelectorAll("input");
         var username = inputElements[0].value;
         var password = inputElements[1].value;
-        this.App.DataSource.authenticate(username, password).then(function (success) {
-            alert("It worked!");
+        this.Application.DataSource.authenticate(username, password).then(function (success) {
+            _this.Application.loggedIn();
             _this.working = false;
+            _this.hide();
         }, function (error) {
             alert("There was an error authenticating: " + error);
             _this.working = false;

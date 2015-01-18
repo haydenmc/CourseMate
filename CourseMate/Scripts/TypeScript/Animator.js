@@ -1,20 +1,19 @@
-﻿/**
-* This class is used to trigger animations on components.
-*/
+/**
+ * This class is used to trigger animations on components.
+ */
 var Animator = (function () {
     function Animator() {
     }
     /**
-    * Used to trigger animation events on a component.
-    * event_name: a string that determines which animations are triggered.
-    * Returns a promise that is resolved when all animations have completed.
-    */
+     * Used to trigger animation events on a component.
+     * event_name: a string that determines which animations are triggered.
+     * Returns a promise that is resolved when all animations have completed.
+     */
     Animator.animate = function (component, event_name) {
         return new Promise(function (resolve, reject) {
             var componentElement = component.baseElement;
             var animatedElements = componentElement.getElementsByClassName("animated");
             var attr = "data-animate-" + event_name;
-
             // Is the component container itself animated?
             var animatedElementCount = 0;
             var animatedElementsCompleted = 0;
@@ -41,15 +40,19 @@ var Animator = (function () {
             }
         });
     };
-
     /**
-    * Runs an animation on a specified element, returning a Promise that is
-    * fulfilled upon animation completion.
-    */
+     * Runs an animation on a specified element, returning a Promise that is
+     * fulfilled upon animation completion.
+     */
     Animator.animateElement = function (element, animationName) {
         return new Promise(function (resolve, reject) {
+            for (var i = element.classList.length - 1; i >= 0; i--) {
+                if (element.classList[i].indexOf("anim-") == 0) {
+                    element.classList.remove(element.classList[i]);
+                }
+            }
             element.classList.add(animationName);
-            element.addEventListener("animationend", function () {
+            element.addEventListener(Util.whichAnimationEvent, function () {
                 resolve();
             });
         });

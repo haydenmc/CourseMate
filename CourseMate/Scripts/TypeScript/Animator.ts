@@ -46,8 +46,14 @@ class Animator {
 	 */
 	public static animateElement(element: HTMLElement, animationName: string): Promise<any> {
 		return new Promise((resolve: () => void, reject: () => void) => {
+			// Strip all other animations
+			for (var i = element.classList.length - 1; i >= 0; i--) {
+				if (element.classList[i].indexOf("anim-") == 0) {
+					element.classList.remove(element.classList[i]);
+				}
+			}
 			element.classList.add(animationName);
-			element.addEventListener("animationend", () => {
+			element.addEventListener(Util.whichAnimationEvent,() => {
 				resolve();
 			});
 		});

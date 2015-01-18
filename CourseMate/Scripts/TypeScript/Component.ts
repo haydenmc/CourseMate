@@ -1,6 +1,6 @@
 ﻿class Component {
-	private _app: App;
-	public get App(): App {
+	private _app: App; // should be protected
+	public get Application(): App {
 		return this._app;
 	}
 
@@ -19,6 +19,14 @@
 	private _isHidden: boolean; // should be protected
 	public get isHidden(): boolean {
 		return this._isHidden;
+	}
+
+	public _title: string; // should be protected
+	public get Title(): string {
+		if (typeof this._title !== 'undefined') {
+			return this._title;
+		}
+		return "component";
 	}
 
 	constructor(app?: App) {

@@ -41,6 +41,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.AspNet.SignalR.Core">
+      <HintPath>..\packages\Microsoft.AspNet.SignalR.Core.2.2.0\lib\net45\Microsoft.AspNet.SignalR.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.SignalR.SystemWeb">
+      <HintPath>..\packages\Microsoft.AspNet.SignalR.SystemWeb.2.2.0\lib\net45\Microsoft.AspNet.SignalR.SystemWeb.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -164,6 +170,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Hubs\CourseHub.cs" />
     <Compile Include="Migrations\201501171530433_Initial.cs" />
     <Compile Include="Migrations\201501171530433_Initial.Designer.cs">
       <DependentUpon>201501171530433_Initial.cs</DependentUpon>
@@ -195,6 +202,12 @@
     <Content Include="Content\Css\App.min.css">
       <DependentUpon>App.css</DependentUpon>
     </Content>
+    <Content Include="Content\Css\Components\CourseListing.css">
+      <DependentUpon>CourseListing.less</DependentUpon>
+    </Content>
+    <Content Include="Content\Css\Components\CourseListing.min.css">
+      <DependentUpon>CourseListing.css</DependentUpon>
+    </Content>
     <Content Include="Content\Css\Components\LogInDialog.css">
       <DependentUpon>LogInDialog.less</DependentUpon>
     </Content>
@@ -213,6 +226,12 @@
     <Content Include="Content\Css\Components\SmallDialog.min.css">
       <DependentUpon>SmallDialog.css</DependentUpon>
     </Content>
+    <Content Include="Content\Css\Components\TopBar.css">
+      <DependentUpon>TopBar.less</DependentUpon>
+    </Content>
+    <Content Include="Content\Css\Components\TopBar.min.css">
+      <DependentUpon>TopBar.css</DependentUpon>
+    </Content>
     <Content Include="Content\Css\Fonts.css">
       <DependentUpon>Fonts.less</DependentUpon>
     </Content>
@@ -227,6 +246,19 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\es6-promise-2.0.1.js" />
+    <Content Include="Content\Css\Components\TopBar.less" />
+    <Content Include="Content\Css\Components\TopBar.css.map">
+      <DependentUpon>TopBar.css</DependentUpon>
+    </Content>
+    <Content Include="Content\Css\Components\CourseListing.less" />
+    <Content Include="Content\Css\Components\CourseListing.css.map">
+      <DependentUpon>CourseListing.css</DependentUpon>
+    </Content>
+    <None Include="Scripts\jquery-1.6.4-vsdoc.js" />
+    <Content Include="Scripts\jquery-1.6.4.js" />
+    <Content Include="Scripts\jquery-1.6.4.min.js" />
+    <Content Include="Scripts\jquery.signalR-2.2.0.js" />
+    <Content Include="Scripts\jquery.signalR-2.2.0.min.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -236,6 +268,8 @@
     </Content>
     <Content Include="Scripts\_references.js" />
     <Content Include="Views\Web.config" />
+    <Content Include="Views\Home\Components\TopBar.cshtml" />
+    <Content Include="Views\Home\Components\CourseListing.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -298,12 +332,15 @@
     <TypeScriptCompile Include="Scripts\TypeScript\Animator.ts" />
     <TypeScriptCompile Include="Scripts\TypeScript\App.ts" />
     <TypeScriptCompile Include="Scripts\TypeScript\Component.ts" />
+    <TypeScriptCompile Include="Scripts\TypeScript\Components\CourseListing.ts" />
     <TypeScriptCompile Include="Scripts\TypeScript\Components\LogInDialog.ts" />
     <TypeScriptCompile Include="Scripts\TypeScript\Components\RegisterDialog.ts" />
     <TypeScriptCompile Include="Scripts\TypeScript\Components\SmallDialog.ts" />
+    <TypeScriptCompile Include="Scripts\TypeScript\Components\TopBar.ts" />
     <TypeScriptCompile Include="Scripts\TypeScript\Data\DataSource.ts" />
     <TypeScriptCompile Include="Scripts\TypeScript\Data\JsonRequest.ts" />
     <TypeScriptCompile Include="Scripts\TypeScript\Data\Models\AuthResponse.ts" />
+    <TypeScriptCompile Include="Scripts\TypeScript\Util.ts" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

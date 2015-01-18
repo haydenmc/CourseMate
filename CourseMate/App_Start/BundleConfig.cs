@@ -13,13 +13,16 @@ namespace CourseMate
 
 			bundles.Add(new ScriptBundle("~/Bundles/TypeScript").Include(
 				"~/Scripts/TypeScript/Animator.js",
+				"~/Scripts/TypeScript/Util.js",
 				"~/Scripts/TypeScript/Component.js",
 				"~/Scripts/TypeScript/App.js",
 				"~/Scripts/TypeScript/Data/JsonRequest.js",
 				"~/Scripts/TypeScript/Data/DataSource.js",
 				"~/Scripts/TypeScript/Components/SmallDialog.js",
 				"~/Scripts/TypeScript/Components/LogInDialog.js",
-				"~/Scripts/TypeScript/Components/RegisterDialog.js"));
+				"~/Scripts/TypeScript/Components/RegisterDialog.js",
+				"~/Scripts/TypeScript/Components/TopBar.js",
+				"~/Scripts/TypeScript/Components/CourseListing.js"));
 
             bundles.Add(new StyleBundle("~/Content/Bundles/Css").Include(
 				"~/Content/Css/App.css"));

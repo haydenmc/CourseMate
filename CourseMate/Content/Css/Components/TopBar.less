@@ -1,0 +1,47 @@
+﻿@import "../Constants.less";
+@import "../Functions.less";
+
+div.cTopBar {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	height: 64px;
+	background-color: @primaryColor;
+	color: #fff;
+
+	h1.pageTitle {
+		float: left;
+		margin: 0 0 0 16px;
+		padding: 0;
+		font-weight: 900;
+		font-size: 54px;
+		opacity:0.5;
+		height:100%;
+		line-height:1.25;
+		.user-select(none);
+		cursor: default;
+	}
+
+	div.user {
+		display: block;
+		float: right;
+		height: 64px;
+		
+		img {
+			width: 64px;
+			height: 64px;
+			vertical-align: top;
+			margin:0 0 0 16px;
+			padding:0;
+			background-color: lighten(@primaryColor, 35%);
+		}
+
+		span {
+			font-size: 26px;
+			font-weight: normal;
+			line-height: 2.5;
+			color: #fff;
+		}
+	}
+}

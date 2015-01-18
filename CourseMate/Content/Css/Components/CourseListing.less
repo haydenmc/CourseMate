@@ -1,4 +1,6 @@
-﻿div.cCourseListing {
+﻿@import "../Functions.less";
+
+div.cCourseListing {
 	position: fixed;
 	top: 64px;
 	left: 0;
@@ -12,10 +14,49 @@
 		padding: 0;
 		width: 100%;
 		max-width: 640px;
-		margin: 0 auto;
-
+		margin: 16px auto;
+		
 		li {
+			position: relative;
+			margin: 16px 0;
 			display: block;
+			height: 96px;
+			width: 100%;
+			.user-select(none);
+			cursor: pointer;
+			.box-sizing(border-box);
+			color: #fff;
+
+			div.code {
+				position: absolute;
+				top: 4px;
+				left: 4px;
+				line-height: 1;
+				font-weight: 900;
+				font-size: 48px;
+				
+			}
+
+			div.title {
+				position: absolute;
+				top: 48px;
+				left: 6px;
+				font-size: 22px;
+			}
+
+			&.new {
+				text-align: center;
+				line-height: 2.75;
+				font-weight: 500;
+				font-size: 32px;
+				color: #000;
+				border: 5px dashed #000;
+				opacity: 0.5;
+
+				&:hover {
+					opacity:1;
+				}
+			}
 		}
 	}
 }

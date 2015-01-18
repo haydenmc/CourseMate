@@ -1,4 +1,6 @@
-﻿div.cCourseListing {
+﻿/* Common useful Functions */
+/* Animations */
+div.cCourseListing {
   position: fixed;
   top: 64px;
   left: 0;
@@ -12,9 +14,48 @@ div.cCourseListing ul.courses {
   padding: 0;
   width: 100%;
   max-width: 640px;
-  margin: 0 auto;
+  margin: 16px auto;
 }
 div.cCourseListing ul.courses li {
+  position: relative;
+  margin: 16px 0;
   display: block;
+  height: 96px;
+  width: 100%;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+  cursor: pointer;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  color: #fff;
+}
+div.cCourseListing ul.courses li div.code {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  line-height: 1;
+  font-weight: 900;
+  font-size: 48px;
+}
+div.cCourseListing ul.courses li div.title {
+  position: absolute;
+  top: 48px;
+  left: 6px;
+  font-size: 22px;
+}
+div.cCourseListing ul.courses li.new {
+  text-align: center;
+  line-height: 2.75;
+  font-weight: 500;
+  font-size: 32px;
+  color: #000;
+  border: 5px dashed #000;
+  opacity: 0.5;
+}
+div.cCourseListing ul.courses li.new:hover {
+  opacity: 1;
 }
 /*# sourceMappingURL=CourseListing.css.map */

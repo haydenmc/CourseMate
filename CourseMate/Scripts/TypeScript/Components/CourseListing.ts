@@ -20,7 +20,8 @@
 			for (var i = 0; i < courses.length; i++) {
 				((course: Course) => {
 					var courseElement = document.createElement("li");
-					courseElement.innerHTML = course.CourseName;
+					courseElement.innerHTML = '<div class="code">' + course.CourseCode + '</div><div class="title">' + course.CourseName + '</div>';
+					courseElement.style.backgroundColor = course.ColorCode;
 					listElement.appendChild(courseElement);
 				})(courses[i]);
 			}

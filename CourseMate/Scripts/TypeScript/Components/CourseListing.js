@@ -1,4 +1,4 @@
-﻿var __extends = this.__extends || function (d, b) {
+var __extends = this.__extends || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
     __.prototype = b.prototype;
@@ -16,7 +16,6 @@ var CourseListing = (function (_super) {
         var _this = this;
         this.Application.DataSource.fetchCourses().then(function (courses) {
             var listElement = _this.baseElement.querySelector("ul.courses");
-
             // First, add placeholder for adding new courses
             var newElement = document.createElement("li");
             newElement.classList.add("new");
@@ -28,7 +27,8 @@ var CourseListing = (function (_super) {
             for (var i = 0; i < courses.length; i++) {
                 (function (course) {
                     var courseElement = document.createElement("li");
-                    courseElement.innerHTML = course.CourseName;
+                    courseElement.innerHTML = '<div class="code">' + course.CourseCode + '</div><div class="title">' + course.CourseName + '</div>';
+                    courseElement.style.backgroundColor = course.ColorCode;
                     listElement.appendChild(courseElement);
                 })(courses[i]);
             }

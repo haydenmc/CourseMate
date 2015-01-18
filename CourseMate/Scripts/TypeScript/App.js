@@ -4,7 +4,16 @@
 var App = (function () {
     function App() {
         App.instance = this;
+        this._dataSource = new DataSource();
     }
+    Object.defineProperty(App.prototype, "DataSource", {
+        get: function () {
+            return this._dataSource;
+        },
+        enumerable: true,
+        configurable: true
+    });
+
     App.prototype.run = function () {
         // Here we go!
         // Test dialog

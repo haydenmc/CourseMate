@@ -41,16 +41,20 @@ var JsonRequest = (function () {
                 // This is called even on 404 etc
                 // so check the status
                 if (req.status == 200) {
-                    // Resolve the promise with the response text
-                    var result = JSON.parse(req.responseText);
+                    if (req.responseText.length > 0) {
+                        // Resolve the promise with the response text
+                        var result = JSON.parse(req.responseText);
 
-                    // OData queries return their results in the 'value' element
-                    if (typeof result.value !== 'undefined') {
-                        var tResult = result.value;
+                        // OData queries return their results in the 'value' element
+                        if (typeof result.value !== 'undefined') {
+                            var tResult = result.value;
+                        } else {
+                            var tResult = result;
+                        }
+                        resolve(tResult);
                     } else {
-                        var tResult = result;
+                        resolve(null);
                     }
-                    resolve(tResult);
                 } else {
                     // Otherwise reject with the status text
                     // which will hopefully be a meaningful error
@@ -68,7 +72,15 @@ var JsonRequest = (function () {
                     req.send();
                     break;
                 case 1 /* POST */:
-                    req.send(postData);
+                    req.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+                    var postBody = "";
+                    for (var field in postData) {
+                        if (postBody.length > 0) {
+                            postBody += "&";
+                        }
+                        postBody += encodeURIComponent(field) + "=" + encodeURIComponent(postData[field]);
+                    }
+                    req.send(postBody);
                     break;
             }
         });

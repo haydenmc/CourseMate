@@ -60,6 +60,9 @@ div.cSmallDialog {
 					background-color: lighten(@primaryColor, 8%);
 					display: inline-block;
 					height: 100%;
+					&:last-child {
+						background-color: darken(@primaryColor, 8%);
+					}
 					a {
 						cursor: pointer;
 						.box-sizing(border-box);

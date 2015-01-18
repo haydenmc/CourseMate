@@ -61,6 +61,9 @@ div.cSmallDialog div.container footer ul.actions li {
   height: 100%;
   text-align: center;
 }
+div.cSmallDialog div.container footer ul.actions li:last-child {
+  background-color: #e37f08;
+}
 div.cSmallDialog div.container footer ul.actions li a {
   cursor: pointer;
   -moz-box-sizing: border-box;

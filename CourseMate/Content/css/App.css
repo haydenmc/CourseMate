@@ -493,6 +493,9 @@ div.cSmallDialog div.container footer ul.actions li {
   height: 100%;
   text-align: center;
 }
+div.cSmallDialog div.container footer ul.actions li:last-child {
+  background-color: #e37f08;
+}
 div.cSmallDialog div.container footer ul.actions li a {
   cursor: pointer;
   -moz-box-sizing: border-box;
@@ -510,6 +513,15 @@ div.cSmallDialog div.container div.content form.logIn {
 }
 div.cSmallDialog div.container div.content form.logIn input[type=text],
 div.cSmallDialog div.container div.content form.logIn input[type=password] {
+  width: calc(100% - 96px);
+  font-size: 20px;
+  margin: 8px;
+}
+div.cSmallDialog div.container div.content form.register {
+  text-align: center;
+}
+div.cSmallDialog div.container div.content form.register input[type=text],
+div.cSmallDialog div.container div.content form.register input[type=password] {
   width: calc(100% - 96px);
   font-size: 20px;
   margin: 8px;

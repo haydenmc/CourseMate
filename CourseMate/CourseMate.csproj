@@ -201,6 +201,12 @@
     <Content Include="Content\Css\Components\LogInDialog.min.css">
       <DependentUpon>LogInDialog.css</DependentUpon>
     </Content>
+    <Content Include="Content\Css\Components\RegisterDialog.css">
+      <DependentUpon>RegisterDialog.less</DependentUpon>
+    </Content>
+    <Content Include="Content\Css\Components\RegisterDialog.min.css">
+      <DependentUpon>RegisterDialog.css</DependentUpon>
+    </Content>
     <Content Include="Content\Css\Components\SmallDialog.css">
       <DependentUpon>SmallDialog.less</DependentUpon>
     </Content>
@@ -274,6 +280,10 @@
     <Content Include="Content\Css\Components\LogInDialog.css.map">
       <DependentUpon>LogInDialog.css</DependentUpon>
     </Content>
+    <Content Include="Content\Css\Components\RegisterDialog.less" />
+    <Content Include="Content\Css\Components\RegisterDialog.css.map">
+      <DependentUpon>RegisterDialog.css</DependentUpon>
+    </Content>
     <None Include="Project_Readme.html" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\Components\SmallDialog.cshtml" />
@@ -289,8 +299,11 @@
     <TypeScriptCompile Include="Scripts\TypeScript\App.ts" />
     <TypeScriptCompile Include="Scripts\TypeScript\Component.ts" />
     <TypeScriptCompile Include="Scripts\TypeScript\Components\LogInDialog.ts" />
+    <TypeScriptCompile Include="Scripts\TypeScript\Components\RegisterDialog.ts" />
     <TypeScriptCompile Include="Scripts\TypeScript\Components\SmallDialog.ts" />
+    <TypeScriptCompile Include="Scripts\TypeScript\Data\DataSource.ts" />
     <TypeScriptCompile Include="Scripts\TypeScript\Data\JsonRequest.ts" />
+    <TypeScriptCompile Include="Scripts\TypeScript\Data\Models\AuthResponse.ts" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

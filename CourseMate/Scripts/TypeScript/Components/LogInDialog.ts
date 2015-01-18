@@ -1,4 +1,6 @@
 ﻿class LogInDialog extends SmallDialog {
+	private working: boolean = false;
+
 	constructor(app: App) {
 		super(app);
 		this.title = "Hi.";
@@ -17,17 +19,34 @@
 		// Add actions
 		this.addAction({
 			name: "Register", method: () => {
-				alert("not implemented.");
+				if (this.working) {
+					return;
+				}
+				new RegisterDialog(this.App).show();
+				this.hide();
 			}
 		});
 		this.addAction({
 			name: "Log In", method: () => {
+				if (this.working) {
+					return;
+				}
 				this.submit();
 			}
 		});
 	}
 
 	public submit(): void {
-		alert("Submitted!");
+		this.working = true;
+		var inputElements = this.baseElement.querySelectorAll("input");
+		var username = (<HTMLInputElement>inputElements[0]).value;
+		var password = (<HTMLInputElement>inputElements[1]).value;
+		this.App.DataSource.authenticate(username, password).then((success) => {
+			alert("It worked!");
+			this.working = false;
+		},(error) => {
+				alert("There was an error authenticating: " + error);
+				this.working = false;
+			});
 	}
 } 

@@ -3,9 +3,13 @@
  */
 class App {
 	public static instance: App; // Singleton
-
+	private _dataSource: DataSource;
+	public get DataSource(): DataSource {
+		return this._dataSource;
+	}
 	constructor() {
 		App.instance = this;
+		this._dataSource = new DataSource();
 	}
 
 	public run(): void {

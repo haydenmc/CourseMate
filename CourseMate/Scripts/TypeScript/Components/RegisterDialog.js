@@ -4,38 +4,35 @@
     __.prototype = b.prototype;
     d.prototype = new __();
 };
-var LogInDialog = (function (_super) {
-    __extends(LogInDialog, _super);
-    function LogInDialog(app) {
+var RegisterDialog = (function (_super) {
+    __extends(RegisterDialog, _super);
+    function RegisterDialog(app) {
         var _this = this;
         _super.call(this, app);
         this.working = false;
-        this.title = "Hi.";
+        this.title = "New?";
 
-        // Generate log-in form
-        var intro = document.createElement("p");
-        intro.classList.add("logIn");
-        intro.innerHTML = "Please log in.";
+        // Generate regiter form
         var form = document.createElement("form");
         form.classList.add("logIn");
-        form.innerHTML = '<input type="text" name="email" placeholder="email address" />' + '<input type= "password" name= "password" placeholder="password" />';
+        form.innerHTML = '<input type="text" name="email" placeholder="email address" />' + '<input type="password" name= "password" placeholder="password" />' + '<input type="password" name= "confirmPassword" placeholder="confirm password" />';
         form.addEventListener("submit", function () {
             _this.submit();
         });
-        this.contentNodes = [intro, form];
+        this.contentNodes = [form];
 
         // Add actions
         this.addAction({
-            name: "Register", method: function () {
+            name: "Cancel", method: function () {
                 if (_this.working) {
                     return;
                 }
-                new RegisterDialog(_this.App).show();
+                new LogInDialog(_this.App).show();
                 _this.hide();
             }
         });
         this.addAction({
-            name: "Log In", method: function () {
+            name: "Register", method: function () {
                 if (_this.working) {
                     return;
                 }
@@ -43,20 +40,21 @@ var LogInDialog = (function (_super) {
             }
         });
     }
-    LogInDialog.prototype.submit = function () {
+    RegisterDialog.prototype.submit = function () {
         var _this = this;
         this.working = true;
         var inputElements = this.baseElement.querySelectorAll("input");
-        var username = inputElements[0].value;
+        var email = inputElements[0].value;
         var password = inputElements[1].value;
-        this.App.DataSource.authenticate(username, password).then(function (success) {
-            alert("It worked!");
+        var confirmPassword = inputElements[2].value;
+        this.App.DataSource.register(email, password, confirmPassword).then(function (result) {
+            alert("Success!");
             _this.working = false;
         }, function (error) {
-            alert("There was an error authenticating: " + error);
+            alert("An error occured while processing registration: " + error);
             _this.working = false;
         });
     };
-    return LogInDialog;
+    return RegisterDialog;
 })(SmallDialog);
-//# sourceMappingURL=LogInDialog.js.map
+//# sourceMappingURL=RegisterDialog.js.map
